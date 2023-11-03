@@ -5,7 +5,6 @@ import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
 import com.gulaev.repository.BookRepository;
 import com.gulaev.user.LibraryUser;
-import com.gulaev.user.User;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -36,7 +35,8 @@ public class BookRecommendationService {
        List<Book> recommendedBookOnGenre = allBook.stream()
            .filter(book -> genreList.contains(book.getGenre())).toList();
 
-       Set<Book> recommendedBooks = Stream.of(recommendedBooksOnAuthor, recommendedBooksOnTag, recommendedBookOnGenre)
+       Set<Book> recommendedBooks =
+           Stream.of(recommendedBooksOnAuthor, recommendedBooksOnTag, recommendedBookOnGenre)
            .flatMap(List::stream)
            .collect(Collectors.toSet());
 
