@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 public class BookRecommendationService {
 
      public static Set<Book> findBookByPreferences(LibraryUser user) {
-        List<Book> usersWishlist = user.getWantish();
+        List<Book> usersWishlist = user.getWishlist();
         List<Book> userBoughtBooks = user.getBoughtBooks();
         Set<Book> books = Stream.concat(usersWishlist.stream(), userBoughtBooks.stream())
             .collect(Collectors.toSet());
@@ -24,7 +24,6 @@ public class BookRecommendationService {
         List<Genre> genreList = findPopularGenres(books, 2);
 
         List<Book> allBook = BookRepository.getAllBooks();
-        // Filter books from the repository based on the user's preferences
 
        List<Book> recommendedBooksOnAuthor = allBook.stream()
            .filter(book -> popularAuthorList.contains(book.getAuthor())).toList();

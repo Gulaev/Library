@@ -2,34 +2,42 @@ package com.gulaev.user;
 
 import com.gulaev.book.Book;
 import java.util.List;
+import java.util.Objects;
 
-public class LibraryUser implements User {
+public class LibraryUser extends User {
 
   private Integer id;
   private String username;
   private String email;
   private String password;
-  private List<Book> wantish;
+  private List<Book> wishlist;
   private List<Book> boughtBooks;
   private List<Book> bag;
-  private String firstname;
-  private String lastname;
+  private String firstName;
+  private String lastName;
 
-  public LibraryUser(Integer id, String username, String email, String password, List<Book> wantish,
-      List<Book> boughtBooks, List<Book> bag, String firstname, String lastname) {
+  public LibraryUser(Integer id, String username, String email, String password, List<Book> wishlist,
+      List<Book> boughtBooks, List<Book> bag, String firstName, String lastName) {
     this.id = id;
     this.username = username;
     this.email = email;
     this.password = password;
-    this.wantish = wantish;
+    this.wishlist = wishlist;
     this.boughtBooks = boughtBooks;
     this.bag = bag;
-    this.firstname = firstname;
-    this.lastname = lastname;
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 
-  public LibraryUser() {
+  public LibraryUser() {}
 
+  @Override
+  public void changePassword(String currentPassword, String newPassword) {
+    if (this.password!=null && this.password.equals(currentPassword)) {
+      this.password = newPassword;
+    } else {
+      System.out.println("Password dosent exist or current password not matches");
+    }
   }
 
   public void setId(Integer id) {
@@ -48,8 +56,8 @@ public class LibraryUser implements User {
     this.password = password;
   }
 
-  public void setWantish(List<Book> wantish) {
-    this.wantish = wantish;
+  public void setWishlist(List<Book> wishlist) {
+    this.wishlist = wishlist;
   }
 
   public void setBoughtBooks(List<Book> boughtBooks) {
@@ -60,12 +68,12 @@ public class LibraryUser implements User {
     this.bag = bag;
   }
 
-  public void setFirstname(String firstname) {
-    this.firstname = firstname;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
-  public void setLastname(String lastname) {
-    this.lastname = lastname;
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
 
   public Integer getId() {
@@ -84,8 +92,8 @@ public class LibraryUser implements User {
     return password;
   }
 
-  public List<Book> getWantish() {
-    return wantish;
+  public List<Book> getWishlist() {
+    return wishlist;
   }
 
   public List<Book> getBoughtBooks() {
@@ -96,11 +104,49 @@ public class LibraryUser implements User {
     return bag;
   }
 
-  public String getFirstname() {
-    return firstname;
+  public String getFirstName() {
+    return firstName;
   }
 
-  public String getLastname() {
-    return lastname;
+  public String getLastName() {
+    return lastName;
+  }
+
+  @Override
+  public String toString() {
+    return "LibraryUser{" +
+        "id=" + id +
+        ", username='" + username + '\'' +
+        ", email='" + email + '\'' +
+        ", password='" + password + '\'' +
+        ", wishlist=" + wishlist +
+        ", boughtBooks=" + boughtBooks +
+        ", bag=" + bag +
+        ", firstName='" + firstName + '\'' +
+        ", lastName='" + lastName + '\'' +
+        '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    LibraryUser that = (LibraryUser) o;
+    return Objects.equals(id, that.id) && Objects.equals(username, that.username)
+        && Objects.equals(email, that.email) && Objects.equals(password,
+        that.password) && Objects.equals(wishlist, that.wishlist)
+        && Objects.equals(boughtBooks, that.boughtBooks) && Objects.equals(bag,
+        that.bag) && Objects.equals(firstName, that.firstName) && Objects.equals(
+        lastName, that.lastName);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, username, email, password, wishlist, boughtBooks, bag, firstName,
+        lastName);
   }
 }
