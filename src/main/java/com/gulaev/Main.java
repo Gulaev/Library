@@ -1,31 +1,46 @@
 package com.gulaev;
 
-import com.gulaev.book.Book;
+import com.gulaev.book.BookItem;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
+import com.gulaev.exeption.PasswordNotFormatException;
 import com.gulaev.service.BookRecommendationService;
 import com.gulaev.user.LibraryUser;
 import java.util.Arrays;
 import java.util.Set;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Main {
 
+  private static final Logger log = LogManager.getLogger(Main.class);
+
   public static void main(String[] args) {
 
-    Book book1 = new Book(1, "Title1", "Nick", "Description1", 10,
+    BookItem bookItem1 = new BookItem(1, "Title1", "Nick", "Description1", 10,
+    
         Arrays.asList(Tag.WAR, Tag.COMEDY), Genre.FANTASY);
-    Book book2 = new Book(2, "Title2", "John", "Description2", 20,
+    BookItem bookItem2 = new BookItem(2, "Title2", "John", "Description2", 20,
         Arrays.asList(Tag.HISTORY, Tag.WAR), Genre.MYSTERY);
-    Book book3 = new Book(3, "Title3", "Nick", "Description3", 30,
+    BookItem bookItem3 = new BookItem(3, "Title3", "Nick", "Description3", 30,
         Arrays.asList(Tag.COMEDY, Tag.HISTORY), Genre.MYSTERY);
 
+
+    log.error("Hello");
+
     LibraryUser user = new LibraryUser();
-    user.setWishlist(Arrays.asList(book1, book2));
-    user.setBoughtBooks(Arrays.asList(book3));
+    user.setWishlist(Arrays.asList(bookItem1, bookItem2));
+    user.setBoughtBooks(Arrays.asList(bookItem3));
 
-    Set<Book> recommendedBooks = BookRecommendationService.findBookByPreferences(user);
+    try {
+      user.changePassword(null, null);
+    } catch (PasswordNotFormatException e) {
+      throw new RuntimeException(e);
+    }
 
-    recommendedBooks.forEach(System.out::println);
+    Set<BookItem> recommendedBookItems = BookRecommendationService.findBookByPreferences(user);
+
+//    recommendedBooks.forEach(System.out::println);
   }
 
 }

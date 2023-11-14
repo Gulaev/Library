@@ -1,43 +1,60 @@
 package com.gulaev.user;
 
 import com.gulaev.book.Book;
+import com.gulaev.book.BookItem;
 import java.util.List;
 import java.util.Objects;
 
-public class LibraryUser extends User {
+public class LibraryUser extends User implements Customer{
 
   private Integer id;
   private String username;
   private String email;
   private String password;
   private List<Book> wishlist;
-  private List<Book> boughtBooks;
+  private List<Book> boughtBookItems;
   private List<Book> bag;
   private String firstName;
   private String lastName;
+  private Integer discountCount;
 
   public LibraryUser(Integer id, String username, String email, String password, List<Book> wishlist,
-      List<Book> boughtBooks, List<Book> bag, String firstName, String lastName) {
+      List<Book> boughtBookItems, List<Book> bag, String firstName, String lastName,
+      Integer discountCount) {
     this.id = id;
     this.username = username;
     this.email = email;
     this.password = password;
     this.wishlist = wishlist;
-    this.boughtBooks = boughtBooks;
+    this.boughtBookItems = boughtBookItems;
     this.bag = bag;
     this.firstName = firstName;
     this.lastName = lastName;
+    this.discountCount = discountCount;
   }
 
   public LibraryUser() {}
 
   @Override
-  public void changePassword(String currentPassword, String newPassword) {
-    if (this.password!=null && this.password.equals(currentPassword)) {
-      this.password = newPassword;
-    } else {
-      System.out.println("Password dosent exist or current password not matches");
+  public Integer countBooksOnWishlist() {
+    Integer booksPrices = 0;
+    if(this.wishlist!=null) {
+      for (Book book : this.wishlist) {
+        booksPrices += book.getPriceWithDiscount(this);
+      }
     }
+    return booksPrices;
+  }
+
+  @Override
+  public Integer countBag() {
+    Integer booksPrices = 0;
+    if(this.bag != null) {
+      for (Book book : this.bag) {
+        booksPrices += book.getPriceWithDiscount(this);
+      }
+    }
+    return booksPrices;
   }
 
   public void setId(Integer id) {
@@ -60,8 +77,8 @@ public class LibraryUser extends User {
     this.wishlist = wishlist;
   }
 
-  public void setBoughtBooks(List<Book> boughtBooks) {
-    this.boughtBooks = boughtBooks;
+  public void setBoughtBooks(List<Book> boughtBookItems) {
+    this.boughtBookItems = boughtBookItems;
   }
 
   public void setBag(List<Book> bag) {
@@ -97,7 +114,7 @@ public class LibraryUser extends User {
   }
 
   public List<Book> getBoughtBooks() {
-    return boughtBooks;
+    return boughtBookItems;
   }
 
   public List<Book> getBag() {
@@ -120,7 +137,7 @@ public class LibraryUser extends User {
         ", email='" + email + '\'' +
         ", password='" + password + '\'' +
         ", wishlist=" + wishlist +
-        ", boughtBooks=" + boughtBooks +
+        ", boughtBooks=" + boughtBookItems +
         ", bag=" + bag +
         ", firstName='" + firstName + '\'' +
         ", lastName='" + lastName + '\'' +
@@ -139,14 +156,24 @@ public class LibraryUser extends User {
     return Objects.equals(id, that.id) && Objects.equals(username, that.username)
         && Objects.equals(email, that.email) && Objects.equals(password,
         that.password) && Objects.equals(wishlist, that.wishlist)
-        && Objects.equals(boughtBooks, that.boughtBooks) && Objects.equals(bag,
+        && Objects.equals(boughtBookItems, that.boughtBookItems) && Objects.equals(bag,
         that.bag) && Objects.equals(firstName, that.firstName) && Objects.equals(
         lastName, that.lastName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, username, email, password, wishlist, boughtBooks, bag, firstName,
+    return Objects.hash(id, username, email, password, wishlist, boughtBookItems, bag, firstName,
         lastName);
   }
+
+  public Integer getDiscountCount() {
+    return discountCount;
+  }
+
+  public void setDiscountCount(Integer discountCount) {
+    this.discountCount = discountCount;
+  }
+
+
 }

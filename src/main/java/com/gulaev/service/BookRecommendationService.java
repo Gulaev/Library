@@ -1,6 +1,6 @@
 package com.gulaev.service;
 
-import com.gulaev.book.Book;
+import com.gulaev.book.BookItem;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
 import com.gulaev.repository.BookRepository;
@@ -10,44 +10,50 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class BookRecommendationService {
 
-     public static Set<Book> findBookByPreferences(LibraryUser user) {
-        List<Book> usersWishlist = user.getWishlist();
-        List<Book> userBoughtBooks = user.getBoughtBooks();
-        Set<Book> books = Stream.concat(usersWishlist.stream(), userBoughtBooks.stream())
+  private static final Logger log = LogManager.getLogger(BookRecommendationService.class);
+
+     public static Set<BookItem> findBookByPreferences(LibraryUser user) {
+//       log.error("Start findBookByPreferences");
+        List<BookItem> usersWishlist = user.getWishlist();
+        List<BookItem> userBoughtBookItems = user.getBoughtBooks();
+        Set<BookItem> bookItems = Stream.concat(usersWishlist.stream(), userBoughtBookItems.stream())
             .collect(Collectors.toSet());
 
-        List<String> popularAuthorList = findPopularAuthors(books, 2);
-        List<Tag> tagsList = findPopularTags(books, 3);
-        List<Genre> genreList = findPopularGenres(books, 2);
+        List<String> popularAuthorList = findPopularAuthors(bookItems, 2);
+        List<Tag> tagsList = findPopularTags(bookItems, 3);
+        List<Genre> genreList = findPopularGenres(bookItems, 2);
 
-        List<Book> allBook = BookRepository.getAllBooks();
+        List<BookItem> allBookItem = BookRepository.getAllBooks();
 
-       List<Book> recommendedBooksOnAuthor = allBook.stream()
+       List<BookItem> recommendedBooksOnAuthor = allBookItem.stream()
            .filter(book -> popularAuthorList.contains(book.getAuthor())).toList();
 
-       List<Book> recommendedBooksOnTag = allBook.stream().
+       List<BookItem> recommendedBooksOnTag = allBookItem.stream().
            filter(book -> book.getTags().stream().anyMatch(tagsList::contains)).toList();
 
-       List<Book> recommendedBookOnGenre = allBook.stream()
+       List<BookItem> recommendedBookOnGenreItem = allBookItem.stream()
            .filter(book -> genreList.contains(book.getGenre())).toList();
 
-       Set<Book> recommendedBooks =
-           Stream.of(recommendedBooksOnAuthor, recommendedBooksOnTag, recommendedBookOnGenre)
+       Set<BookItem> recommendedBookItems =
+           Stream.of(recommendedBooksOnAuthor, recommendedBooksOnTag, recommendedBookOnGenreItem)
            .flatMap(List::stream)
            .collect(Collectors.toSet());
 
 
-        return recommendedBooks;
+//       log.error("Method findBookByPreferences executed");
+        return recommendedBookItems;
     }
 
 
 
-  private static List<String> findPopularAuthors(Set<Book> books, int threshold) {
-    Map<String, Long> authorCounts = books.stream()
-        .collect(Collectors.groupingBy(Book::getAuthor, Collectors.counting()));
+  private static List<String> findPopularAuthors(Set<BookItem> bookItems, int threshold) {
+    Map<String, Long> authorCounts = bookItems.stream()
+        .collect(Collectors.groupingBy(BookItem::getAuthor, Collectors.counting()));
 
     return authorCounts.entrySet().stream()
         .filter(entry -> entry.getValue() >= threshold)
@@ -55,8 +61,8 @@ public class BookRecommendationService {
         .collect(Collectors.toList());
   }
 
-  private static List<Tag> findPopularTags(Set<Book> books, int threshold) {
-    Map<Tag, Long> tagCounts = books.stream()
+  private static List<Tag> findPopularTags(Set<BookItem> bookItems, int threshold) {
+    Map<Tag, Long> tagCounts = bookItems.stream()
         .flatMap(book -> book.getTags().stream())
         .collect(Collectors.groupingBy(tag -> tag, Collectors.counting()));
 
@@ -66,9 +72,9 @@ public class BookRecommendationService {
         .collect(Collectors.toList());
   }
 
-  private static List<Genre> findPopularGenres(Set<Book> books, int threshold) {
-    Map<Genre, Long> genreCounts = books.stream()
-        .collect(Collectors.groupingBy(Book::getGenre, Collectors.counting()));
+  private static List<Genre> findPopularGenres(Set<BookItem> bookItems, int threshold) {
+    Map<Genre, Long> genreCounts = bookItems.stream()
+        .collect(Collectors.groupingBy(BookItem::getGenre, Collectors.counting()));
 
     return genreCounts.entrySet().stream()
         .filter(entry -> entry.getValue() >= threshold)
