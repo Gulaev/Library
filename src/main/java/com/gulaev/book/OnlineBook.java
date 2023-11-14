@@ -26,6 +26,26 @@ public class OnlineBook implements Book, Purchasable{
   }
 
   @Override
+  public String getTitle() {
+    return this.title;
+  }
+
+  @Override
+  public String getAuthor() {
+    return this.author;
+  }
+
+  @Override
+  public List<Tag> getTags() {
+    return this.tags;
+  }
+
+  @Override
+  public Genre getGenre() {
+    return this.genre;
+  }
+
+  @Override
   public User addToCart(LibraryUser user) {
     List<Book> bag = user.getBag();
     bag.add(this);
