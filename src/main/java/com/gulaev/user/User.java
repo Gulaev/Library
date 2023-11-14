@@ -3,12 +3,12 @@ package com.gulaev.user;
 import com.gulaev.exeption.PasswordNotFormatException;
 
 public abstract class User {
-  private Integer id;
-  private String username;
-  private String email;
-  private String password;
-  private String firstname;
-  private String lastname;
+  protected Integer id;
+  protected String username;
+  protected String email;
+  protected String password;
+  protected String firstname;
+  protected String lastname;
 
 
   public void changePassword(String currentPassword, String newPassword)

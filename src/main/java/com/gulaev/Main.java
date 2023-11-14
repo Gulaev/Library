@@ -40,7 +40,7 @@ public class Main {
 
     Set<BookItem> recommendedBookItems = BookRecommendationService.findBookByPreferences(user);
 
-//    recommendedBooks.forEach(System.out::println);
+    recommendedBookItems.forEach(System.out::println);
   }
 
 }
