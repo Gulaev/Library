@@ -23,7 +23,8 @@ public class LibraryUser extends User implements Customer {
   public LibraryUser() {
   }
 
-  public LibraryUser(Integer id, String username, String email, String password, List<Book> wishlist,
+  public LibraryUser(Integer id, String username, String email, String password,
+      List<Book> wishlist,
       List<Book> boughtBookItems, List<Book> bag, String firstName, String lastName,
       Integer discountCount) {
     this.id = id;
@@ -48,10 +49,14 @@ public class LibraryUser extends User implements Customer {
     this.lastName = lastName;
   }
 
+  public static LibraryUserBuilder builder() {
+    return new LibraryUserBuilder();
+  }
+
   @Override
   public Integer countBooksOnWishlist() {
     Integer booksPrices = 0;
-    if(this.wishlist!=null) {
+    if (this.wishlist != null) {
       for (Book book : this.wishlist) {
         booksPrices += book.getPriceWithDiscount(this);
       }
@@ -62,7 +67,7 @@ public class LibraryUser extends User implements Customer {
   @Override
   public Integer countBag() {
     Integer booksPrices = 0;
-    if(this.bag != null) {
+    if (this.bag != null) {
       for (Book book : this.bag) {
         booksPrices += book.getPriceWithDiscount(this);
       }
@@ -70,76 +75,76 @@ public class LibraryUser extends User implements Customer {
     return booksPrices;
   }
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public void setUsername(String username) {
-    this.username = username;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  public void setWishlist(List<Book> wishlist) {
-    this.wishlist = wishlist;
-  }
-
-  public void setBoughtBooks(List<Book> boughtBookItems) {
-    this.boughtBookItems = boughtBookItems;
-  }
-
-  public void setBag(List<Book> bag) {
-    this.bag = bag;
-  }
-
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
-
   public Integer getId() {
     return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public String getUsername() {
     return username;
   }
 
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
   public String getEmail() {
     return email;
+  }
+
+  public void setEmail(String email) {
+    this.email = email;
   }
 
   public String getPassword() {
     return password;
   }
 
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
   public List<Book> getWishlist() {
     return wishlist;
+  }
+
+  public void setWishlist(List<Book> wishlist) {
+    this.wishlist = wishlist;
   }
 
   public List<Book> getBoughtBooks() {
     return boughtBookItems;
   }
 
+  public void setBoughtBooks(List<Book> boughtBookItems) {
+    this.boughtBookItems = boughtBookItems;
+  }
+
   public List<Book> getBag() {
     return bag;
+  }
+
+  public void setBag(List<Book> bag) {
+    this.bag = bag;
   }
 
   public String getFirstName() {
     return firstName;
   }
 
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
+
   public String getLastName() {
     return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
 
   @Override
@@ -188,10 +193,6 @@ public class LibraryUser extends User implements Customer {
     this.discountCount = discountCount;
   }
 
-  public static LibraryUserBuilder builder() {
-      return new LibraryUserBuilder();
-  }
-
   @Override
   public User changePassword(User user, String currentPassword, String newPassword)
       throws PasswordNotFormatException, PasswordDidntMatchException {
@@ -200,10 +201,11 @@ public class LibraryUser extends User implements Customer {
         this.password = newPassword;
         return this;
       } else {
-        throw new PasswordNotFormatException("New password format is not valid");
+        throw new PasswordNotFormatException("The new password format is invalid");
       }
     } else {
-      throw new PasswordDidntMatchException("Password doesn't exist or current password doesn't match");
+      throw new PasswordDidntMatchException(
+          "Password doesn't exist or current password doesn't match");
     }
   }
 

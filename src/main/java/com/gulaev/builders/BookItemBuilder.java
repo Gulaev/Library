@@ -38,8 +38,8 @@ public class BookItemBuilder implements Builder<BookItem>{
     }
 
     public BookItemBuilder setDescription(String description) throws DescriptionToLowException {
-      if (description.length()<50) {
-        throw new DescriptionToLowException("Description cant by less 50 symbols");
+      if (description.length() < 50) {
+        throw new DescriptionToLowException("Description cannot be less than 50 characters");
       }
       this.description = description;
       return this;
@@ -47,9 +47,8 @@ public class BookItemBuilder implements Builder<BookItem>{
 
     public BookItemBuilder setPrice(Integer price) throws PriceCantByZeroException {
       if (price <= 0) {
-        throw new PriceCantByZeroException("Price cant by less 1$");
+        throw new PriceCantByZeroException("The price cannot be less than 1 dollar");
       }
-
       this.price = price;
       return this;
     }
