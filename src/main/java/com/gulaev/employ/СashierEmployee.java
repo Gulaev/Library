@@ -2,7 +2,7 @@ package com.gulaev.employ;
 
 import com.gulaev.user.User;
 
-public class СashierEmploy extends User implements Employ {
+public class СashierEmployee extends User implements Employee {
 
   private static final Integer SALARY_BY_DAY = 80;
 

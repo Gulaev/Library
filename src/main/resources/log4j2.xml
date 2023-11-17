@@ -1,33 +1,53 @@
-<!--<?xml version="1.0" encoding="UTF-8"?>-->
-<Configuration name="ConfigTest" status="WARN" monitorInterval="5">
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
     <Appenders>
-        <RollingFile name="FILE" fileName="./logs/app-%d{yyyy-MM-dd}.log" filePattern="./logs/app-%d{yyyy-MM-dd}-%i.log"/>
+        <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-            <Policies>
-                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-            </Policies>
-            <DefaultRolloverStrategy max="7"/>
-    </Appenders>
+        </Console>
 
+        <File name="File" fileName="log-file.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+
+        <File name="SummaryFile" fileName="summary-file.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
     <Loggers>
-        <Root level="INFO">
-            <AppenderRef ref="FILE"/>
+        <Logger name="com.gulaev.Main" level="debug">
+            <AppenderRef ref="File"/>
+        </Logger>
+
+        <Logger name="com.gulaev.Main" level="trace" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <Logger name="com.gulaev.Main" level="info" additivity="false">
+            <AppenderRef ref="SummaryFile"/>
+        </Logger>
+
+        <Root level="error">
         </Root>
     </Loggers>
 </Configuration>
-
-  <!--<Configuration name="ConfigTest" status="WARN" monitorInterval="5">-->
+<!--<Configuration name="ConfigTest" status="WARN" monitorInterval="5">-->
 <!--    <Appenders>-->
-<!--            <Console name="Out" target="SYSTEM_OUT">-->
-<!--                <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>-->
-<!--            </Console>-->
+<!--        <RollingFile name="FILE" fileName="./logs/app-%d{yyyy-MM-dd}.log" filePattern="./logs/app-%d{yyyy-MM-dd}-%i.log">-->
+<!--            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>-->
+<!--                <Policies>-->
+<!--                    <TimeBasedTriggeringPolicy interval="1" modulate="true"/>-->
+<!--                </Policies>-->
+<!--            <DefaultRolloverStrategy max="7"/>-->
+<!--</RollingFile>-->
 <!--    </Appenders>-->
+
 <!--    <Loggers>-->
-<!--        <Logger name="org.apache.test" level="trace" additivity="false">-->
-<!--            <AppenderRef ref="Out"/>-->
-<!--        </Logger>-->
-<!--        <Root level="error">-->
-<!--            <AppenderRef ref="Out"/>-->
+<!--        <Root level="INFO">-->
+<!--            <AppenderRef ref="FILE"/>-->
 <!--        </Root>-->
 <!--    </Loggers>-->
 <!--</Configuration>-->
+
+
+
+

@@ -1,9 +1,11 @@
 package com.gulaev.book;
 
+import com.gulaev.builders.OnlineBookBuilder;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
 import com.gulaev.user.LibraryUser;
 import com.gulaev.user.User;
+import java.io.File;
 import java.util.List;
 import java.util.Objects;
 
@@ -16,6 +18,19 @@ public class OnlineBook implements Book, Purchasable{
   private Integer price;
   private List<Tag> tags;
   private Genre genre;
+  private File cover;
+
+  public OnlineBook(Integer id, String title, String author, String description, Integer price,
+      List<Tag> tags, Genre genre, File cover) {
+    this.id = id;
+    this.title = title;
+    this.author = author;
+    this.description = description;
+    this.price = price;
+    this.tags = tags;
+    this.genre = genre;
+    this.cover = cover;
+  }
 
   @Override
   public Integer getPriceWithDiscount(LibraryUser user) {
@@ -119,5 +134,24 @@ public class OnlineBook implements Book, Purchasable{
   @Override
   public User removeFromCart(LibraryUser user) {
     return null;
+  }
+
+
+  public static OnlineBookBuilder builder() {
+    return new OnlineBookBuilder();
+  }
+
+  @Override
+  public String toString() {
+    return "OnlineBook{" +
+        "id=" + id +
+        ", title='" + title + '\'' +
+        ", author='" + author + '\'' +
+        ", description='" + description + '\'' +
+        ", price=" + price +
+        ", tags=" + tags +
+        ", genre=" + genre +
+        ", cover=" + cover.toString() +
+        '}';
   }
 }

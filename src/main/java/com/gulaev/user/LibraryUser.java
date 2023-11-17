@@ -1,11 +1,13 @@
 package com.gulaev.user;
 
 import com.gulaev.book.Book;
-import com.gulaev.book.BookItem;
+import com.gulaev.builders.LibraryUserBuilder;
+import com.gulaev.exception.PasswordDidntMatchException;
+import com.gulaev.exception.PasswordNotFormatException;
 import java.util.List;
 import java.util.Objects;
 
-public class LibraryUser extends User implements Customer{
+public class LibraryUser extends User implements Customer {
 
   private Integer id;
   private String username;
@@ -33,7 +35,15 @@ public class LibraryUser extends User implements Customer{
     this.discountCount = discountCount;
   }
 
-  public LibraryUser() {}
+  public LibraryUser(Integer id, String username, String email,
+      String password, String firstName, String lastName) {
+    this.id = id;
+    this.username = username;
+    this.email = email;
+    this.password = password;
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
 
   @Override
   public Integer countBooksOnWishlist() {
@@ -175,5 +185,23 @@ public class LibraryUser extends User implements Customer{
     this.discountCount = discountCount;
   }
 
+  public static LibraryUserBuilder builder() {
+      return new LibraryUserBuilder();
+  }
+
+  @Override
+  public User changePassword(User user, String currentPassword, String newPassword)
+      throws PasswordNotFormatException, PasswordDidntMatchException {
+    if (this.password != null && this.password.equals(currentPassword)) {
+      if (newPassword.matches("^(?=.*\\d)(?=.*[A-Z]).{1,7}$")) {
+        this.password = newPassword;
+        return this;
+      } else {
+        throw new PasswordNotFormatException("New password format is not valid");
+      }
+    } else {
+      throw new PasswordDidntMatchException("Password doesn't exist or current password doesn't match");
+    }
+  }
 
 }

@@ -1,5 +1,6 @@
 package com.gulaev.book;
 
+import com.gulaev.builders.BookItemBuilder;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
 import com.gulaev.user.LibraryUser;
@@ -12,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 public class BookItem implements Book, Purchasable {
 
-  private static final Logger log = LogManager.getLogger(BookItem.class);
+//  private static final Logger log = LogManager.getLogger(BookItem.class);
 
   private Integer id;
   private String title;
@@ -50,7 +51,7 @@ public class BookItem implements Book, Purchasable {
       bag.remove(first.get());
       user.setBag(bag);
     } else {
-     log.error("Book is not present");
+//     log.error("Book is not present");
     }
     return user;
   }
@@ -155,5 +156,8 @@ public class BookItem implements Book, Purchasable {
   }
 
 
+  public static BookItemBuilder builder() {
+    return new BookItemBuilder();
+  }
 
 }
