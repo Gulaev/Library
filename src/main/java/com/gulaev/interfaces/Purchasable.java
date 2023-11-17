@@ -1,4 +1,4 @@
-package com.gulaev.book;
+package com.gulaev.interfaces;
 
 import com.gulaev.user.LibraryUser;
 import com.gulaev.user.User;

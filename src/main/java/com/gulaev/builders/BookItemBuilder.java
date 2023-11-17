@@ -5,10 +5,11 @@ import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
 import com.gulaev.exception.DescriptionToLowException;
 import com.gulaev.exception.PriceCantByZeroException;
+import com.gulaev.interfaces.Builder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookItemBuilder implements Builder<BookItem>{
+public class BookItemBuilder implements Builder<BookItem> {
 
     private Integer id;
     private String title;

@@ -1,4 +1,4 @@
-package com.gulaev.employ;
+package com.gulaev.interfaces;
 
 
 public interface Employee {

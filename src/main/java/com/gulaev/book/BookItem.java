@@ -3,6 +3,8 @@ package com.gulaev.book;
 import com.gulaev.builders.BookItemBuilder;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
+import com.gulaev.interfaces.Book;
+import com.gulaev.interfaces.Purchasable;
 import com.gulaev.user.LibraryUser;
 import com.gulaev.user.User;
 import java.util.List;

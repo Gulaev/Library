@@ -1,9 +1,10 @@
 package com.gulaev.user;
 
-import com.gulaev.book.Book;
+import com.gulaev.interfaces.Book;
 import com.gulaev.builders.LibraryUserBuilder;
 import com.gulaev.exception.PasswordDidntMatchException;
 import com.gulaev.exception.PasswordNotFormatException;
+import com.gulaev.interfaces.Customer;
 import java.util.List;
 import java.util.Objects;
 

@@ -1,6 +1,6 @@
 package com.gulaev.service;
 
-import com.gulaev.book.Book;
+import com.gulaev.interfaces.Book;
 import com.gulaev.book.BookItem;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;

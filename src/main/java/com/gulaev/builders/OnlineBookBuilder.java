@@ -3,6 +3,7 @@ package com.gulaev.builders;
 import com.gulaev.book.OnlineBook;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
+import com.gulaev.interfaces.Builder;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

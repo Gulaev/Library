@@ -1,4 +1,4 @@
-package com.gulaev.user;
+package com.gulaev.interfaces;
 
 public interface Customer {
 

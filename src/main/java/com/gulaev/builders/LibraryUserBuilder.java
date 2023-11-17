@@ -2,6 +2,7 @@ package com.gulaev.builders;
 
 import com.gulaev.exception.EmailNotFormatException;
 import com.gulaev.exception.PasswordNotFormatException;
+import com.gulaev.interfaces.Builder;
 import com.gulaev.user.LibraryUser;
 
 public class LibraryUserBuilder implements Builder<LibraryUser> {

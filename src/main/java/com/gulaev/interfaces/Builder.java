@@ -1,4 +1,4 @@
-package com.gulaev.builders;
+package com.gulaev.interfaces;
 
 public interface Builder<T> {
 

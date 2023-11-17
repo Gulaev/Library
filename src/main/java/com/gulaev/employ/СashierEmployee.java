@@ -1,5 +1,6 @@
 package com.gulaev.employ;
 
+import com.gulaev.interfaces.Employee;
 import com.gulaev.user.User;
 
 public class СashierEmployee extends User implements Employee {
