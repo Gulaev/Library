@@ -5,18 +5,12 @@
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </Console>
 
-        <File name="File" fileName="log-file.log">
-            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
-        </File>
 
-        <File name="SummaryFile" fileName="summary-file.log">
+        <File name="SummaryFile" fileName="logs/summary-file.log">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="com.gulaev" level="debug">
-            <AppenderRef ref="File"/>
-        </Logger>
 
         <Logger name="com.gulaev" level="info" additivity="false">
             <AppenderRef ref="Console"/>

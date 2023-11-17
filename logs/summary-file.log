@@ -1,0 +1,6 @@
+17:36:38.236 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+17:36:38.243 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+17:36:38.254 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+17:36:48.391 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+17:36:48.395 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+17:36:48.401 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
