@@ -69,14 +69,15 @@ public class OnlineBookBuilder implements Builder<OnlineBook>{
       File file = new File(fis.toString());
       this.cover = file;
       return this;
+
     } catch (FileNotFoundException e) {
       LOG.error("File with photo not found, set standard image");
       File file = new File(STANDARD_IMAGE_PATH);
       this.cover = file;
       return this;
     } catch (IOException e) {
-      LOG.error(e);
-      throw new RuntimeException(e);
+      LOG.error(e.getMessage());
+      return this;
     }
   }
 

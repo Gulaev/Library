@@ -24,10 +24,10 @@ public class BookService {
         return book;
 
       } catch (DescriptionToLowException e) {
-        throw new RuntimeException(e);
+        return new BookItem();
 
       } catch (PriceCantByZeroException e) {
-        throw new RuntimeException(e);
+        return new BookItem();
       }
 
     }

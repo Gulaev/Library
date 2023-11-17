@@ -20,6 +20,9 @@ public class LibraryUser extends User implements Customer {
   private String lastName;
   private Integer discountCount;
 
+  public LibraryUser() {
+  }
+
   public LibraryUser(Integer id, String username, String email, String password, List<Book> wishlist,
       List<Book> boughtBookItems, List<Book> bag, String firstName, String lastName,
       Integer discountCount) {

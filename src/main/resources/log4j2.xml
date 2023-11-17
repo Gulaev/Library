@@ -14,40 +14,23 @@
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="com.gulaev.Main" level="debug">
+        <Logger name="com.gulaev" level="debug">
             <AppenderRef ref="File"/>
         </Logger>
 
-        <Logger name="com.gulaev.Main" level="trace" additivity="false">
+        <Logger name="com.gulaev" level="info" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
 
-        <Logger name="com.gulaev.Main" level="info" additivity="false">
+        <Logger name="com.gulaev" level="info" additivity="false">
             <AppenderRef ref="SummaryFile"/>
         </Logger>
 
-        <Root level="error">
+        <Root level="info" additivity="false">
+            <AppenderRef ref="Console" />
         </Root>
     </Loggers>
 </Configuration>
-<!--<Configuration name="ConfigTest" status="WARN" monitorInterval="5">-->
-<!--    <Appenders>-->
-<!--        <RollingFile name="FILE" fileName="./logs/app-%d{yyyy-MM-dd}.log" filePattern="./logs/app-%d{yyyy-MM-dd}-%i.log">-->
-<!--            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>-->
-<!--                <Policies>-->
-<!--                    <TimeBasedTriggeringPolicy interval="1" modulate="true"/>-->
-<!--                </Policies>-->
-<!--            <DefaultRolloverStrategy max="7"/>-->
-<!--</RollingFile>-->
-<!--    </Appenders>-->
-
-<!--    <Loggers>-->
-<!--        <Root level="INFO">-->
-<!--            <AppenderRef ref="FILE"/>-->
-<!--        </Root>-->
-<!--    </Loggers>-->
-<!--</Configuration>-->
-
 
 
 

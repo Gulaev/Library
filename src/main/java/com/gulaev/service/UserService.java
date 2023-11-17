@@ -16,31 +16,34 @@ public class UserService {
           String lastName, String password) {
         Random random = new Random();
         try {
-
           LibraryUser user  = LibraryUser.builder().setId(random.nextInt()).setUsername(username)
               .setFirstName(firstName)
               .setLastName(lastName).setPassword(password).setEmail(email).build();
         return user;
 
         } catch (PasswordNotFormatException e) {
-          throw new RuntimeException(e);
+          LOG.error(e.getMessage());
+          return new LibraryUser();
 
         } catch (EmailNotFormatException e) {
-          throw new RuntimeException(e);
+          LOG.error(e.getMessage());
+          return new LibraryUser();
         }
+
       }
 
       public static LibraryUser changePasswordToUser(LibraryUser user, String currentPassword, String newPassword) {
         try {
           user.changePassword(user,currentPassword, newPassword);
           return user;
+
         } catch (PasswordNotFormatException e) {
           LOG.error("Password need to be format, min 6 symbols and one digit");
-          throw new RuntimeException(e);
+          return user;
 
         } catch (PasswordDidntMatchException e) {
           LOG.error("Password didnt match, check and try again");
-          throw new RuntimeException(e);
+          return user;
         }
       }
 }

@@ -16,10 +16,10 @@ import org.apache.logging.log4j.Logger;
 
 public class BookRecommendationService {
 
-  private static final Logger log = LogManager.getLogger(BookRecommendationService.class);
+  private static final Logger LOG = LogManager.getLogger(BookRecommendationService.class);
 
      public static Set<BookItem> findBookByPreferences(LibraryUser user) {
-      log.error("Start findBookByPreferences");
+        LOG.info("Start findBookByPreferences");
         List<Book> usersWishlist = user.getWishlist();
         List<Book> userBoughtBookItems = user.getBoughtBooks();
         Set<Book> bookItems = Stream.concat(usersWishlist.stream(), userBoughtBookItems.stream())
@@ -46,7 +46,7 @@ public class BookRecommendationService {
            .collect(Collectors.toSet());
 
 
-       log.error("Method findBookByPreferences executed");
+       LOG.info("Method findBookByPreferences executed");
         return recommendedBookItems;
     }
 

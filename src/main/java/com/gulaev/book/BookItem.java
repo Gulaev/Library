@@ -34,6 +34,9 @@ public class BookItem implements Book, Purchasable {
     this.genre = genre;
   }
 
+  public BookItem() {
+  }
+
   @Override
   public User addToCart(LibraryUser user) {
     List<Book> bag = user.getBag();
