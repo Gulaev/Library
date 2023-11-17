@@ -9,7 +9,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Objects;
 
-public class OnlineBook implements Book, Purchasable{
+public class OnlineBook implements Book, Purchasable {
 
   private Integer id;
   private String title;
@@ -128,7 +128,6 @@ public class OnlineBook implements Book, Purchasable{
   public Genre getGenre() {
     return this.genre;
   }
-
 
 
   @Override

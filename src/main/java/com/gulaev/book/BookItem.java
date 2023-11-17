@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 public class BookItem implements Book, Purchasable {
 
-//  private static final Logger log = LogManager.getLogger(BookItem.class);
+  private static final Logger LOGGER = LogManager.getLogger(BookItem.class);
 
   private Integer id;
   private String title;
@@ -37,6 +37,10 @@ public class BookItem implements Book, Purchasable {
   public BookItem() {
   }
 
+  public static BookItemBuilder builder() {
+    return new BookItemBuilder();
+  }
+
   @Override
   public User addToCart(LibraryUser user) {
     List<Book> bag = user.getBag();
@@ -48,18 +52,16 @@ public class BookItem implements Book, Purchasable {
   @Override
   public User removeFromCart(LibraryUser user) {
     List<Book> bag = user.getBag();
-    Optional<Book> first = bag.stream()
-        .filter(bookItem-> bookItem.getTitle().matches(this.title)).findFirst();
+    Optional<Book> first = bag.stream().filter(bookItem -> bookItem.getTitle().matches(this.title))
+        .findFirst();
     if (first.isPresent()) {
       bag.remove(first.get());
       user.setBag(bag);
     } else {
-//     log.error("Book is not present");
+      LOGGER.error("Book is not present");
     }
     return user;
   }
-
-
 
   @Override
   public Integer getPriceWithDiscount(LibraryUser user) {
@@ -70,72 +72,67 @@ public class BookItem implements Book, Purchasable {
     return null;
   }
 
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public void setAuthor(String author) {
-    this.author = author;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public void setPrice(Integer price) {
-    this.price = price;
-  }
-
-  public void setTags(List<Tag> tags) {
-    this.tags = tags;
-  }
-
-  public void setGenre(Genre genre) {
-    this.genre = genre;
-  }
-
   public Integer getId() {
     return id;
+  }
+
+  public void setId(Integer id) {
+    this.id = id;
   }
 
   public String getTitle() {
     return title;
   }
 
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
   public String getAuthor() {
     return author;
+  }
+
+  public void setAuthor(String author) {
+    this.author = author;
   }
 
   public String getDescription() {
     return description;
   }
 
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
   public Integer getPrice() {
     return price;
+  }
+
+  public void setPrice(Integer price) {
+    this.price = price;
   }
 
   public List<Tag> getTags() {
     return tags;
   }
 
+  public void setTags(List<Tag> tags) {
+    this.tags = tags;
+  }
+
   public Genre getGenre() {
     return genre;
   }
+
+  public void setGenre(Genre genre) {
+    this.genre = genre;
+  }
+
   @Override
   public String toString() {
-    return "Book{" +
-        "id=" + id +
-        ", title='" + title + '\'' +
-        ", author='" + author + '\'' +
-        ", description='" + description + '\'' +
-        ", price=" + price +
-        ", tags=" + tags +
-        ", genre=" + genre +
-        '}';
+    return "Book{" + "id=" + id + ", title='" + title + '\'' + ", author='" + author + '\''
+        + ", description='" + description + '\'' + ", price=" + price + ", tags=" + tags
+        + ", genre=" + genre + '}';
   }
 
   @Override
@@ -149,18 +146,13 @@ public class BookItem implements Book, Purchasable {
     BookItem bookItem = (BookItem) o;
     return Objects.equals(id, bookItem.id) && Objects.equals(title, bookItem.title)
         && Objects.equals(author, bookItem.author) && Objects.equals(description,
-        bookItem.description) && Objects.equals(price, bookItem.price) && Objects.equals(
-        tags, bookItem.tags) && genre == bookItem.genre;
+        bookItem.description) && Objects.equals(price, bookItem.price) && Objects.equals(tags,
+        bookItem.tags) && genre == bookItem.genre;
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(id, title, author, description, price, tags, genre);
-  }
-
-
-  public static BookItemBuilder builder() {
-    return new BookItemBuilder();
   }
 
 }

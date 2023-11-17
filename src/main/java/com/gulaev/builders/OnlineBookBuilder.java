@@ -11,7 +11,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class OnlineBookBuilder implements Builder<OnlineBook>{
+public class OnlineBookBuilder implements Builder<OnlineBook> {
 
   public final static Logger LOG = LogManager.getLogger(OnlineBookBuilder.class);
 
@@ -75,6 +75,7 @@ public class OnlineBookBuilder implements Builder<OnlineBook>{
       File file = new File(STANDARD_IMAGE_PATH);
       this.cover = file;
       return this;
+
     } catch (IOException e) {
       LOG.error(e.getMessage());
       return this;

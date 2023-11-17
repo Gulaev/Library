@@ -31,7 +31,7 @@ public class LibraryUserBuilder implements Builder<LibraryUser> {
     if (email.matches("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$")) {
       this.email = email;
     } else {
-      throw new EmailNotFormatException("Email format is not correct");
+      throw new EmailNotFormatException("Invalid email format");
     }
     return this;
   }
@@ -41,7 +41,7 @@ public class LibraryUserBuilder implements Builder<LibraryUser> {
     if (password.matches("^(?=.*\\d)(?=.*[A-Z]).{7,}$")) {
       this.password = password;
     } else {
-      throw new PasswordNotFormatException("Password format is inccorect");
+      throw new PasswordNotFormatException("Invalid password format");
     }
     return this;
   }
@@ -57,7 +57,6 @@ public class LibraryUserBuilder implements Builder<LibraryUser> {
     this.firstName = firstName;
     return this;
   }
-
 
 
   public LibraryUser build() {
