@@ -4,7 +4,7 @@ import com.gulaev.book.BookItem;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
 import com.gulaev.exception.DescriptionToLowException;
-import com.gulaev.exception.PriceCantByZeroException;
+import com.gulaev.exception.PriceCannotBeZeroException;
 import com.gulaev.interfaces.Builder;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,9 +46,9 @@ public class BookItemBuilder implements Builder<BookItem> {
       return this;
     }
 
-    public BookItemBuilder setPrice(Integer price) throws PriceCantByZeroException {
+    public BookItemBuilder setPrice(Integer price) throws PriceCannotBeZeroException {
       if (price <= 0) {
-        throw new PriceCantByZeroException("The price cannot be less than 1 dollar");
+        throw new PriceCannotBeZeroException("The price cannot be less than 1 dollar");
       }
       this.price = price;
       return this;

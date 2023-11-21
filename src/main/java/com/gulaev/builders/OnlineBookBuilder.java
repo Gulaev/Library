@@ -14,8 +14,7 @@ import org.apache.logging.log4j.Logger;
 
 public class OnlineBookBuilder implements Builder<OnlineBook> {
 
-  public final static Logger LOG = LogManager.getLogger(OnlineBookBuilder.class);
-
+  public final static Logger LOGGER = LogManager.getLogger(OnlineBookBuilder.class);
 
   private final String STANDARD_IMAGE_PATH = "/Users/denisgulaev/Documents/projects/Java Automation Task/Library/src/main/resources/cover/img.png";
   private Integer id;
@@ -66,21 +65,22 @@ public class OnlineBookBuilder implements Builder<OnlineBook> {
   }
 
   public OnlineBookBuilder setCover(String filePath) {
+    LOGGER.info("Start setCover");
     try (FileInputStream fis = new FileInputStream(filePath)) {
       File file = new File(fis.toString());
       this.cover = file;
-      return this;
 
     } catch (FileNotFoundException e) {
-      LOG.error("File with photo not found, set standard image");
+      LOGGER.error("File with photo not found, set standard image");
       File file = new File(STANDARD_IMAGE_PATH);
       this.cover = file;
-      return this;
 
     } catch (IOException e) {
-      LOG.error(e.getMessage());
-      return this;
+      LOGGER.error(e.getMessage());
     }
+
+    LOGGER.info("Method setCover executed");
+    return this;
   }
 
 

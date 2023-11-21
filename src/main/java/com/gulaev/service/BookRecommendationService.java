@@ -4,8 +4,10 @@ import com.gulaev.interfaces.Book;
 import com.gulaev.book.BookItem;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
+import com.gulaev.linkd.LinkdList;
 import com.gulaev.repository.BookRepository;
 import com.gulaev.user.LibraryUser;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -29,7 +31,12 @@ public class BookRecommendationService {
     List<Tag> tagsList = findPopularTags(bookItems, 3);
     List<Genre> genreList = findPopularGenres(bookItems, 2);
 
-    List<BookItem> allBookItem = BookRepository.getAllBooks();
+    LinkdList<BookItem> allBookItems = BookRepository.getAllBooks();
+    List<BookItem> allBookItem = new ArrayList<>();
+
+    for (BookItem item: allBookItems){
+      allBookItem.add(item);
+    }
 
     List<BookItem> recommendedBooksOnAuthor = allBookItem.stream()
         .filter(book -> popularAuthorList.contains(book.getAuthor())).toList();
@@ -51,20 +58,25 @@ public class BookRecommendationService {
 
 
   private static List<String> findPopularAuthors(Set<Book> bookItems, int threshold) {
+    LOGGER.info("Start findPopularAuthors");
     Map<String, Long> authorCounts = bookItems.stream()
         .collect(Collectors.groupingBy(Book::getAuthor, Collectors.counting()));
 
+    LOGGER.info("Method findPopularAuthors executed");
     return authorCounts.entrySet().stream()
         .filter(entry -> entry.getValue() >= threshold)
         .map(Map.Entry::getKey)
         .collect(Collectors.toList());
+
   }
 
   private static List<Tag> findPopularTags(Set<Book> bookItems, int threshold) {
+    LOGGER.info("Start findPopularAuthors");
     Map<Tag, Long> tagCounts = bookItems.stream()
         .flatMap(book -> book.getTags().stream())
         .collect(Collectors.groupingBy(tag -> tag, Collectors.counting()));
 
+    LOGGER.info("Method findPopularAuthors executed");
     return tagCounts.entrySet().stream()
         .filter(entry -> entry.getValue() >= threshold)
         .map(Map.Entry::getKey)
@@ -72,9 +84,11 @@ public class BookRecommendationService {
   }
 
   private static List<Genre> findPopularGenres(Set<Book> bookItems, int threshold) {
+    LOGGER.info("Start findPopularGenres");
     Map<Genre, Long> genreCounts = bookItems.stream()
         .collect(Collectors.groupingBy(Book::getGenre, Collectors.counting()));
 
+    LOGGER.info("Method findPopularGenres executed");
     return genreCounts.entrySet().stream()
         .filter(entry -> entry.getValue() >= threshold)
         .map(Map.Entry::getKey)

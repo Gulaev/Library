@@ -1,7 +1,7 @@
 package com.gulaev.user;
 
-import com.gulaev.exception.PasswordDidntMatchException;
-import com.gulaev.exception.PasswordNotFormatException;
+import com.gulaev.exception.PasswordDoNotMatchException;
+import com.gulaev.exception.InvalidPasswordFormatException;
 
 public abstract class User {
   protected Integer id;
@@ -13,16 +13,16 @@ public abstract class User {
 
 
   public User changePassword(User user, String currentPassword, String newPassword)
-      throws PasswordNotFormatException, PasswordDidntMatchException {
+      throws InvalidPasswordFormatException, PasswordDoNotMatchException {
     if (user.password != null && user.password.equals(currentPassword)) {
       if (newPassword.matches("^(?=.*\\d)(?=.*[A-Z]).{1,7}$")) {
         user.password = newPassword;
         return user;
       } else {
-        throw new PasswordNotFormatException("New password format is not valid");
+        throw new InvalidPasswordFormatException("New password format is not valid");
       }
     } else {
-      throw new PasswordDidntMatchException("Password doesn't exist or current password doesn't match");
+      throw new PasswordDoNotMatchException("Password doesn't exist or current password doesn't match");
     }
   }
 

@@ -2,8 +2,8 @@ package com.gulaev.user;
 
 import com.gulaev.interfaces.Book;
 import com.gulaev.builders.LibraryUserBuilder;
-import com.gulaev.exception.PasswordDidntMatchException;
-import com.gulaev.exception.PasswordNotFormatException;
+import com.gulaev.exception.PasswordDoNotMatchException;
+import com.gulaev.exception.InvalidPasswordFormatException;
 import com.gulaev.interfaces.Customer;
 import java.util.List;
 import java.util.Objects;
@@ -196,16 +196,16 @@ public class LibraryUser extends User implements Customer {
 
   @Override
   public User changePassword(User user, String currentPassword, String newPassword)
-      throws PasswordNotFormatException, PasswordDidntMatchException {
+      throws InvalidPasswordFormatException, PasswordDoNotMatchException {
     if (this.password != null && this.password.equals(currentPassword)) {
       if (newPassword.matches("^(?=.*\\d)(?=.*[A-Z]).{1,7}$")) {
         this.password = newPassword;
         return this;
       } else {
-        throw new PasswordNotFormatException("The new password format is invalid");
+        throw new InvalidPasswordFormatException("The new password format is invalid");
       }
     } else {
-      throw new PasswordDidntMatchException(
+      throw new PasswordDoNotMatchException(
           "Password doesn't exist or current password doesn't match");
     }
   }

@@ -4,3 +4,177 @@
 17:36:48.391 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
 17:36:48.395 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
 17:36:48.401 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+22:17:34.422 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+22:17:34.430 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+22:17:34.443 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+22:33:05.615 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+22:33:05.622 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+22:33:05.637 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+22:40:04.089 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+22:40:04.094 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+22:40:04.105 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+13:59:02.380 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+13:59:02.383 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+13:59:02.389 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+13:59:29.578 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+13:59:29.581 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+13:59:29.588 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+13:59:52.781 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+13:59:52.785 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+13:59:52.791 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:00:08.305 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:00:08.308 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:00:08.314 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:07:52.391 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:07:52.395 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:07:52.401 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:07:55.244 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:08:02.873 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:08:02.986 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:13:00.184 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:13:00.186 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:13:00.191 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:13:11.766 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:13:11.769 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:13:11.780 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:26:33.932 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:26:33.935 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:26:33.941 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:26:42.296 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:26:42.301 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:26:42.311 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:29:33.646 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:29:33.666 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:29:33.680 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:29:47.332 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:29:47.336 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:29:47.344 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:36:21.381 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:36:21.384 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:36:21.389 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:36:35.167 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:36:36.557 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:36:36.561 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:36:36.574 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:36:41.074 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:36:41.084 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:36:42.700 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:36:42.707 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:36:42.720 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+15:06:26.849 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+15:06:26.857 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+15:06:26.883 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+15:08:02.388 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+15:08:02.393 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+15:08:02.403 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+15:51:38.192 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+15:51:38.196 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+15:51:38.203 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+15:51:53.690 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+15:51:53.693 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+15:51:53.699 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+16:28:37.118 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+16:28:37.121 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+16:28:37.127 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+13:52:17.465 [main] INFO  com.gulaev.service.BookService - Start createNewBookItem
+13:52:17.466 [main] INFO  com.gulaev.service.BookService - Method createNewBookItem executed
+13:52:17.467 [main] INFO  com.gulaev.builders.OnlineBookBuilder - Start setCover
+13:52:17.467 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+13:52:17.467 [main] INFO  com.gulaev.builders.OnlineBookBuilder - Method setCover executed
+13:52:17.467 [main] INFO  com.gulaev.service.UserService - Start createNewLibraryUser
+13:52:17.468 [main] INFO  com.gulaev.service.UserService - Method createNewLibraryUser executed
+13:52:17.468 [main] INFO  com.gulaev.service.UserService - Start changePasswordToUser
+13:52:17.468 [main] INFO  com.gulaev.service.UserService - Method changePasswordToUser executed
+13:52:17.468 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+13:52:17.468 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularAuthors
+13:52:17.470 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularAuthors executed
+13:52:17.470 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularAuthors
+13:52:17.471 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularAuthors executed
+13:52:17.471 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularGenres
+13:52:17.471 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularGenres executed
+13:52:17.474 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+13:52:46.190 [main] INFO  com.gulaev.service.BookService - Start createNewBookItem
+13:52:46.194 [main] INFO  com.gulaev.service.BookService - Method createNewBookItem executed
+13:52:46.195 [main] INFO  com.gulaev.builders.OnlineBookBuilder - Start setCover
+13:52:46.195 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+13:52:46.195 [main] INFO  com.gulaev.builders.OnlineBookBuilder - Method setCover executed
+13:52:46.198 [main] INFO  com.gulaev.service.UserService - Start createNewLibraryUser
+13:52:46.201 [main] INFO  com.gulaev.service.UserService - Method createNewLibraryUser executed
+13:52:46.202 [main] INFO  com.gulaev.service.UserService - Start changePasswordToUser
+13:52:46.202 [main] INFO  com.gulaev.service.UserService - Method changePasswordToUser executed
+13:52:46.204 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+13:52:46.206 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularAuthors
+13:52:46.210 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularAuthors executed
+13:52:46.212 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularAuthors
+13:52:46.213 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularAuthors executed
+13:52:46.214 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularGenres
+13:52:46.214 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularGenres executed
+13:52:46.223 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+13:52:56.779 [main] INFO  com.gulaev.service.BookService - Start createNewBookItem
+13:52:56.783 [main] INFO  com.gulaev.service.BookService - Method createNewBookItem executed
+13:52:56.784 [main] INFO  com.gulaev.builders.OnlineBookBuilder - Start setCover
+13:52:56.784 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+13:52:56.784 [main] INFO  com.gulaev.builders.OnlineBookBuilder - Method setCover executed
+13:52:56.786 [main] INFO  com.gulaev.service.UserService - Start createNewLibraryUser
+13:52:56.787 [main] INFO  com.gulaev.service.UserService - Method createNewLibraryUser executed
+13:52:56.787 [main] INFO  com.gulaev.service.UserService - Start changePasswordToUser
+13:52:56.787 [main] INFO  com.gulaev.service.UserService - Method changePasswordToUser executed
+13:52:56.788 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+13:52:56.788 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularAuthors
+13:52:56.790 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularAuthors executed
+13:52:56.790 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularAuthors
+13:52:56.791 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularAuthors executed
+13:52:56.791 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularGenres
+13:52:56.791 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularGenres executed
+13:52:56.799 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+13:53:15.602 [main] INFO  com.gulaev.service.BookService - Start createNewBookItem
+13:53:15.605 [main] INFO  com.gulaev.service.BookService - Method createNewBookItem executed
+13:53:15.606 [main] INFO  com.gulaev.builders.OnlineBookBuilder - Start setCover
+13:53:15.606 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+13:53:15.606 [main] INFO  com.gulaev.builders.OnlineBookBuilder - Method setCover executed
+13:53:15.607 [main] INFO  com.gulaev.service.UserService - Start createNewLibraryUser
+13:53:15.608 [main] INFO  com.gulaev.service.UserService - Method createNewLibraryUser executed
+13:53:15.608 [main] INFO  com.gulaev.service.UserService - Start changePasswordToUser
+13:53:15.608 [main] INFO  com.gulaev.service.UserService - Method changePasswordToUser executed
+13:53:15.609 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+13:53:15.609 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularAuthors
+13:53:15.612 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularAuthors executed
+13:53:15.613 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularAuthors
+13:53:15.613 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularAuthors executed
+13:53:15.614 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularGenres
+13:53:15.614 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularGenres executed
+13:53:15.617 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:10:10.694 [main] INFO  com.gulaev.service.BookService - Start createNewBookItem
+14:10:10.702 [main] INFO  com.gulaev.service.BookService - Method createNewBookItem executed
+14:10:10.706 [main] INFO  com.gulaev.builders.OnlineBookBuilder - Start setCover
+14:10:10.707 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:10:10.707 [main] INFO  com.gulaev.builders.OnlineBookBuilder - Method setCover executed
+14:10:10.709 [main] INFO  com.gulaev.service.UserService - Start createNewLibraryUser
+14:10:10.712 [main] INFO  com.gulaev.service.UserService - Method createNewLibraryUser executed
+14:10:10.712 [main] INFO  com.gulaev.service.UserService - Start changePasswordToUser
+14:10:10.713 [main] INFO  com.gulaev.service.UserService - Method changePasswordToUser executed
+14:10:10.713 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:10:10.714 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularAuthors
+14:10:10.718 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularAuthors executed
+14:10:10.720 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularAuthors
+14:10:10.721 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularAuthors executed
+14:10:10.722 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularGenres
+14:10:10.723 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularGenres executed
+14:10:10.731 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed
+14:10:17.511 [main] INFO  com.gulaev.service.BookService - Start createNewBookItem
+14:10:17.513 [main] INFO  com.gulaev.service.BookService - Method createNewBookItem executed
+14:10:17.513 [main] INFO  com.gulaev.builders.OnlineBookBuilder - Start setCover
+14:10:17.514 [main] ERROR com.gulaev.builders.OnlineBookBuilder - File with photo not found, set standard image
+14:10:17.514 [main] INFO  com.gulaev.builders.OnlineBookBuilder - Method setCover executed
+14:10:17.514 [main] INFO  com.gulaev.service.UserService - Start createNewLibraryUser
+14:10:17.518 [main] INFO  com.gulaev.service.UserService - Method createNewLibraryUser executed
+14:10:17.518 [main] INFO  com.gulaev.service.UserService - Start changePasswordToUser
+14:10:17.519 [main] INFO  com.gulaev.service.UserService - Method changePasswordToUser executed
+14:10:17.519 [main] INFO  com.gulaev.service.BookRecommendationService - Start findBookByPreferences
+14:10:17.519 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularAuthors
+14:10:17.521 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularAuthors executed
+14:10:17.522 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularAuthors
+14:10:17.522 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularAuthors executed
+14:10:17.522 [main] INFO  com.gulaev.service.BookRecommendationService - Start findPopularGenres
+14:10:17.523 [main] INFO  com.gulaev.service.BookRecommendationService - Method findPopularGenres executed
+14:10:17.531 [main] INFO  com.gulaev.service.BookRecommendationService - Method findBookByPreferences executed

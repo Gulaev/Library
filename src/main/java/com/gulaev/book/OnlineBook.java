@@ -34,13 +34,17 @@ public class OnlineBook implements Book, Purchasable {
     this.cover = cover;
   }
 
+  public static OnlineBookBuilder builder() {
+    return new OnlineBookBuilder();
+  }
+
   @Override
   public Integer getPriceWithDiscount(LibraryUser user) {
     if (user.getDiscountCount() != null && this.price != null) {
       int discountAmount = (this.price * user.getDiscountCount()) / 100;
       return price - discountAmount;
     }
-    return null;
+    return price;
   }
 
   @Override
@@ -79,14 +83,6 @@ public class OnlineBook implements Book, Purchasable {
     this.id = id;
   }
 
-  public void setTitle(String title) {
-    this.title = title;
-  }
-
-  public void setAuthor(String author) {
-    this.author = author;
-  }
-
   public String getDescription() {
     return description;
   }
@@ -103,17 +99,13 @@ public class OnlineBook implements Book, Purchasable {
     this.price = price;
   }
 
-  public void setTags(List<Tag> tags) {
-    this.tags = tags;
-  }
-
-  public void setGenre(Genre genre) {
-    this.genre = genre;
-  }
-
   @Override
   public String getTitle() {
     return this.title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   @Override
@@ -121,9 +113,17 @@ public class OnlineBook implements Book, Purchasable {
     return this.author;
   }
 
+  public void setAuthor(String author) {
+    this.author = author;
+  }
+
   @Override
   public List<Tag> getTags() {
     return this.tags;
+  }
+
+  public void setTags(List<Tag> tags) {
+    this.tags = tags;
   }
 
   @Override
@@ -131,15 +131,13 @@ public class OnlineBook implements Book, Purchasable {
     return this.genre;
   }
 
+  public void setGenre(Genre genre) {
+    this.genre = genre;
+  }
 
   @Override
   public User removeFromCart(LibraryUser user) {
     return null;
-  }
-
-
-  public static OnlineBookBuilder builder() {
-    return new OnlineBookBuilder();
   }
 
   @Override

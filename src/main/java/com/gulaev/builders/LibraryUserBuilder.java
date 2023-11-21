@@ -1,7 +1,7 @@
 package com.gulaev.builders;
 
 import com.gulaev.exception.EmailNotFormatException;
-import com.gulaev.exception.PasswordNotFormatException;
+import com.gulaev.exception.InvalidPasswordFormatException;
 import com.gulaev.interfaces.Builder;
 import com.gulaev.user.LibraryUser;
 
@@ -37,12 +37,12 @@ public class LibraryUserBuilder implements Builder<LibraryUser> {
     return this;
   }
 
-  public LibraryUserBuilder setPassword(String password) throws PasswordNotFormatException {
+  public LibraryUserBuilder setPassword(String password) throws InvalidPasswordFormatException {
 
     if (password.matches("^(?=.*\\d)(?=.*[A-Z]).{7,}$")) {
       this.password = password;
     } else {
-      throw new PasswordNotFormatException("Invalid password format");
+      throw new InvalidPasswordFormatException("Invalid password format");
     }
     return this;
   }
