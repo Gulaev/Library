@@ -3,14 +3,13 @@ package com.gulaev.repository;
 import com.gulaev.book.BookItem;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
+import com.gulaev.linkd.Linkd;
 import com.gulaev.linkd.LinkdList;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public final class BookRepository {
 
-  private static final LinkdList<BookItem> BOOK_ITEMS = new LinkdList<>();
+  private static final Linkd<BookItem> BOOK_ITEMS = new LinkdList<>();
 
   static {
     String[] authors = {"Nick", "John", "Sam", "Alex", "Tom"};
@@ -25,7 +24,7 @@ public final class BookRepository {
     }
   }
 
-  public static LinkdList<BookItem> getAllBooks() {
+  public static Linkd<BookItem> getAllBooks() {
     return BOOK_ITEMS;
   }
 }

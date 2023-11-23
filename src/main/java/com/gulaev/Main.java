@@ -12,9 +12,13 @@ import com.gulaev.service.UserService;
 import com.gulaev.user.LibraryUser;
 import java.util.Arrays;
 import java.util.Set;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public class Main {
+
+  private static final Logger LOGGER = LogManager.getLogger(Main.class);
 
   public static void main(String[] args) {
 
@@ -41,23 +45,16 @@ public class Main {
     user = UserService.changePasswordToUser(user, "Abc1234", "Abc1235");
 
     Set<BookItem> recommendedBookItems = BookRecommendationService.findBookByPreferences(user);
-    System.out.println(onlineBook.toString());
 
-    Linkd<Integer> lol = new LinkdList<>();
+    Linkd<Integer> integerLinkdList = new LinkdList<>();
 
-    lol.add(1);
-    lol.add(2);
-    lol.add(3);
-    lol.add(4);
+    integerLinkdList.add(1);
+    integerLinkdList.add(2);
+    integerLinkdList.add(3);
+    integerLinkdList.add(4);
+    integerLinkdList.add(1, 4);
 
-    System.out.println("aaaaaaaaaaa");
-
-//    lol.deleteLast();
-    lol.add(1, 4);
-    for (Integer i : lol) {
-      System.out.println(i);
-    }
-    System.out.println(lol.length());
+    LOGGER.info(integerLinkdList);
 
 
   }

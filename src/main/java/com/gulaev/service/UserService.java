@@ -24,7 +24,6 @@ public class UserService {
           .setLastName(lastName).setPassword(password).setEmail(email).build();
     } catch (InvalidPasswordFormatException | EmailNotFormatException e) {
       LOGGER.error(e.getMessage());
-      return user;
     }
     LOGGER.info("Method createNewLibraryUser executed");
     return user;
