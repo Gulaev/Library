@@ -4,6 +4,7 @@ import com.gulaev.interfaces.Book;
 import com.gulaev.book.BookItem;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
+import com.gulaev.linkd.Linkd;
 import com.gulaev.linkd.LinkdList;
 import com.gulaev.repository.BookRepository;
 import com.gulaev.user.LibraryUser;
@@ -31,7 +32,7 @@ public class BookRecommendationService {
     List<Tag> tagsList = findPopularTags(bookItems, 3);
     List<Genre> genreList = findPopularGenres(bookItems, 2);
 
-    LinkdList<BookItem> allBookItems = BookRepository.getAllBooks();
+    Linkd<BookItem> allBookItems = BookRepository.getAllBooks();
     List<BookItem> allBookItem = new ArrayList<>();
 
     for (BookItem item: allBookItems){

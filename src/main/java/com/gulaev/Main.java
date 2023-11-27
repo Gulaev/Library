@@ -4,12 +4,14 @@ import com.gulaev.book.BookItem;
 import com.gulaev.book.OnlineBook;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
+import com.gulaev.file.FileReader;
 import com.gulaev.linkd.Linkd;
 import com.gulaev.linkd.LinkdList;
 import com.gulaev.service.BookRecommendationService;
 import com.gulaev.service.BookService;
 import com.gulaev.service.UserService;
 import com.gulaev.user.LibraryUser;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Set;
 import org.apache.logging.log4j.LogManager;
@@ -56,6 +58,11 @@ public class Main {
 
     LOGGER.info(integerLinkdList);
 
+    try {
+      System.out.println(FileReader.getWordsFromFile());
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
 
   }
 }
