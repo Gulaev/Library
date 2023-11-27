@@ -1,1 +1,1 @@
-To read read text from a file, calculate the number of unique words, and write the result to a file using StringUtils and FileUtils, you can use the following code snippet in Java:
+To read text from a file, calculate the number of unique words, and write the result to a file using StringUtils and FileUtils, you can use the following code snippet in Java:
