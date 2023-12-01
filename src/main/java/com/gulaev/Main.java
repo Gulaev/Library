@@ -5,6 +5,9 @@ import com.gulaev.book.OnlineBook;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
 import com.gulaev.file.FileReader;
+import com.gulaev.interfaces.function.Builder;
+import com.gulaev.interfaces.function.Calculator;
+import com.gulaev.interfaces.function.Сonnector;
 import com.gulaev.linkd.Linkd;
 import com.gulaev.linkd.LinkdList;
 import com.gulaev.service.BookRecommendationService;
@@ -58,11 +61,28 @@ public class Main {
 
     LOGGER.info(integerLinkdList);
 
+//    recommendedBookItems.forEach();
+
     try {
       System.out.println(FileReader.getWordsFromFile());
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
+
+    //Testng lambda functions
+
+    Calculator<Integer, Integer> run2 = (Integer d, Integer b) ->
+        System.out.println(d + b);
+
+    Builder<String> builder = () -> new String("Builder works");
+    String build = builder.build();
+
+    Сonnector<Integer, Integer, Long> connector = (Integer a, Integer b) -> {
+      String valueOfSum = String.valueOf(a + b);
+      Long bb = Long.parseLong(valueOfSum);
+      return bb;
+    };
+
 
   }
 }

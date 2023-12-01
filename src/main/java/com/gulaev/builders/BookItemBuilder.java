@@ -5,7 +5,7 @@ import com.gulaev.enums.Genre;
 import com.gulaev.enums.Tag;
 import com.gulaev.exception.DescriptionToLowException;
 import com.gulaev.exception.PriceCannotBeZeroException;
-import com.gulaev.interfaces.Builder;
+import com.gulaev.interfaces.function.Builder;
 import java.util.ArrayList;
 import java.util.List;
 
