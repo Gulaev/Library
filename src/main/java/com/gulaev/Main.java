@@ -23,6 +23,7 @@ import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -92,6 +93,11 @@ public class Main {
     //Testing lambda functions
 
     Consumer<Employee> comparable = e -> e.calculateSalary(12);
-//    Supplier<WarehouseEmployee> supplier = (e) -> e;
+    Supplier<String> messageSupplier = () -> "Hello, World!";
+    String message = messageSupplier.get();
+    Function<Integer, Integer> squareFunction = x -> x * x;
+    int squared = squareFunction.apply(5);
+    UnaryOperator<Double> incrementBy10 = x -> x + 10;
+    double result = incrementBy10.apply(5.0);
   }
 }
