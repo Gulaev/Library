@@ -2,6 +2,8 @@ package com.gulaev;
 
 import com.gulaev.book.BookItem;
 import com.gulaev.book.OnlineBook;
+import com.gulaev.employ.WarehouseEmployee;
+import com.gulaev.employ.СashierEmployee;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Stores;
 import com.gulaev.enums.Tag;
@@ -25,13 +27,10 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
-import java.util.function.BiConsumer;
 import java.util.function.BiPredicate;
-import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
-import java.util.function.UnaryOperator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -85,8 +84,11 @@ public class Main {
 
     //Testng oun lambda functions
 
+    Employee employee = new WarehouseEmployee();
+    Employee employee1 = new СashierEmployee();
     Calculator<Employee, Employee> run2 = (Employee a, Employee b) ->
         a.calculateSalary(31) + b.calculateSalary(31);
+    run2.calculate(employee, employee1);
 
     Сonnector<BookItem, BookItem, OnlineBook> connector = (a, b) -> {
       OnlineBook onlineBook1 = OnlineBook.builder()
@@ -97,23 +99,34 @@ public class Main {
           .setPrice(a.getPrice()).build();
       return onlineBook1;
     };
+    connector.connect(bookItem1, bookItem2);
 
     //Testing lambda functions
-
     Consumer<Employee> comparable = e -> e.calculateSalary(12);
-    Supplier<String> messageSupplier = () -> "Hello, World!";
-    String message = messageSupplier.get();
-    Function<Integer, Integer> squareFunction = x -> x * x;
-    int squared = squareFunction.apply(5);
-    UnaryOperator<Double> incrementBy10 = x -> x + 10;
-    double result = incrementBy10.apply(5.0);
-    BiConsumer<String, Integer> printKeyValue = (key, value) -> System.out.println(
-        key + ": " + value);
-    printKeyValue.accept("Key", 10);
-    BiPredicate<String, Integer> hasLength = (str, length) -> str.length() == length;
-    boolean hasSpecificLength = hasLength.test("Java", 4);
-    BinaryOperator<Integer> max = Integer::max;
-    int maxValue = max.apply(10, 15);
+    comparable.accept(employee);
+    Supplier<BookItem> bookItemSupplier = () -> {
+      return new BookItem(2, "Title2", "John", "Description2", 20,
+          Arrays.asList(Tag.HISTORY, Tag.WAR), Genre.MYSTERY, Warehouses.KYIV, Stores.KYIV);
+    };
+    bookItemSupplier.get();
+    Function<BookItem, OnlineBook> squareFunction = bookItem -> {
+      OnlineBook onlineBook1 = OnlineBook.builder()
+          .setAuthor(bookItem.getAuthor())
+          .setDescription(bookItem.getDescription())
+          .setGenre(bookItem.getGenre())
+          .setTags(bookItem.getTags())
+          .setPrice(bookItem.getPrice()).build();
+      return onlineBook1;
+    };
+    squareFunction.apply(bookItem1);
+
+    BiPredicate<BookItem, OnlineBook> hasLength = (b, o) -> {
+      if (b.getAuthor().equals(o.getAuthor()) && b.getDescription().equals(o.getDescription())) {
+        return true;
+      } else {
+        return false;
+      }
+    };
 
     //Reflection Testing
     Class<?> onlineBookClass = OnlineBook.class;

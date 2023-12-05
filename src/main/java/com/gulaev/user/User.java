@@ -1,5 +1,6 @@
 package com.gulaev.user;
 
+import com.gulaev.enums.Seasons;
 import com.gulaev.exception.PasswordDoNotMatchException;
 import com.gulaev.exception.InvalidPasswordFormatException;
 
@@ -10,6 +11,7 @@ public abstract class User {
   protected String password;
   protected String firstname;
   protected String lastname;
+  protected Seasons workStartSeason;
 
 
   public User changePassword(User user, String currentPassword, String newPassword)
