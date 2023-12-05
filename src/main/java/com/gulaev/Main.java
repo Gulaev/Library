@@ -83,7 +83,6 @@ public class Main {
     }
 
     //Testng oun lambda functions
-
     Employee employee = new WarehouseEmployee();
     Employee employee1 = new СashierEmployee();
     Calculator<Employee, Employee> run2 = (Employee a, Employee b) ->
@@ -120,13 +119,14 @@ public class Main {
     };
     squareFunction.apply(bookItem1);
 
-    BiPredicate<BookItem, OnlineBook> hasLength = (b, o) -> {
+    BiPredicate<BookItem, OnlineBook> bookBiPredicate = (b, o) -> {
       if (b.getAuthor().equals(o.getAuthor()) && b.getDescription().equals(o.getDescription())) {
         return true;
       } else {
         return false;
       }
     };
+    bookBiPredicate.test(bookItem1, onlineBook);
 
     //Reflection Testing
     Class<?> onlineBookClass = OnlineBook.class;
