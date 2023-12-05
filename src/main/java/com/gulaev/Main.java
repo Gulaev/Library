@@ -20,6 +20,9 @@ import com.gulaev.user.LibraryUser;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Set;
+import java.util.function.BiConsumer;
+import java.util.function.BiPredicate;
+import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -99,5 +102,14 @@ public class Main {
     int squared = squareFunction.apply(5);
     UnaryOperator<Double> incrementBy10 = x -> x + 10;
     double result = incrementBy10.apply(5.0);
+    BiConsumer<String, Integer> printKeyValue = (key, value) -> System.out.println(key + ": " + value);
+    printKeyValue.accept("Key", 10);
+    BiPredicate<String, Integer> hasLength = (str, length) -> str.length() == length;
+    boolean hasSpecificLength = hasLength.test("Java", 4);
+    BinaryOperator<Integer> max = Integer::max;
+    int maxValue = max.apply(10, 15);
+
+
+
   }
 }
