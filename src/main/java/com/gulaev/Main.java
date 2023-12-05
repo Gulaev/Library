@@ -2,7 +2,6 @@ package com.gulaev;
 
 import com.gulaev.book.BookItem;
 import com.gulaev.book.OnlineBook;
-import com.gulaev.employ.WarehouseEmployee;
 import com.gulaev.enums.Genre;
 import com.gulaev.enums.Stores;
 import com.gulaev.enums.Tag;
@@ -17,8 +16,14 @@ import com.gulaev.service.BookRecommendationService;
 import com.gulaev.service.BookService;
 import com.gulaev.service.UserService;
 import com.gulaev.user.LibraryUser;
+import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.BiPredicate;
@@ -102,14 +107,78 @@ public class Main {
     int squared = squareFunction.apply(5);
     UnaryOperator<Double> incrementBy10 = x -> x + 10;
     double result = incrementBy10.apply(5.0);
-    BiConsumer<String, Integer> printKeyValue = (key, value) -> System.out.println(key + ": " + value);
+    BiConsumer<String, Integer> printKeyValue = (key, value) -> System.out.println(
+        key + ": " + value);
     printKeyValue.accept("Key", 10);
     BiPredicate<String, Integer> hasLength = (str, length) -> str.length() == length;
     boolean hasSpecificLength = hasLength.test("Java", 4);
     BinaryOperator<Integer> max = Integer::max;
     int maxValue = max.apply(10, 15);
 
+    //Reflection Testing
+    Class<?> onlineBookClass = OnlineBook.class;
 
+    // Extract information about fields
+    Field[] fields = onlineBookClass.getDeclaredFields();
+    System.out.println("Fields:");
+    Arrays.stream(fields).forEach(field -> System.out.println(field.getName()));
 
+    // Extract information about constructors
+    Constructor<?>[] constructors = onlineBookClass.getDeclaredConstructors();
+    System.out.println("\nConstructors:");
+    Arrays.stream(constructors).forEach(System.out::println);
+
+    // Extract information about methods
+    Method[] methods = onlineBookClass.getDeclaredMethods();
+    System.out.println("\nMethods:");
+    Arrays.stream(methods).forEach(method -> System.out.println(method.getName()));
+
+    // Create an object using reflection
+    Constructor<?> constructor = null;
+    try {
+      constructor = onlineBookClass.getDeclaredConstructor(
+          Integer.class, String.class, String.class, String.class, Integer.class,
+          List.class, Genre.class, File.class);
+    } catch (NoSuchMethodException e) {
+      throw new RuntimeException(e);
+    }
+    constructor.setAccessible(true);
+    OnlineBook book = null;
+    try {
+      book = (OnlineBook) constructor.newInstance(
+          1, "Title", "Author", "Description", 100,
+          List.of(Tag.NON_FICTION), Genre.FANTASY, new File("path/to/cover.jpg"));
+    } catch (InstantiationException e) {
+      throw new RuntimeException(e);
+    } catch (IllegalAccessException e) {
+      throw new RuntimeException(e);
+    } catch (InvocationTargetException e) {
+      throw new RuntimeException(e);
+    }
+
+    // Invoke a method using reflection
+    Method method = null;
+    try {
+      method = onlineBookClass.getDeclaredMethod("getPriceWithDiscount", LibraryUser.class);
+    } catch (NoSuchMethodException e) {
+      throw new RuntimeException(e);
+    }
+    method.setAccessible(true);
+    Integer discountedPrice = null;
+    try {
+      discountedPrice = (Integer) method.invoke(book, new LibraryUser());
+    } catch (IllegalAccessException e) {
+      throw new RuntimeException(e);
+    } catch (InvocationTargetException e) {
+      throw new RuntimeException(e);
+    }
+
+    System.out.println("\nDiscounted Price: " + discountedPrice);
+
+    // Print object details
+    System.out.println("\nObject Details:");
+    System.out.println(book);
   }
+
+}
 }
