@@ -2,7 +2,9 @@ package com.gulaev.builders;
 
 import com.gulaev.book.BookItem;
 import com.gulaev.enums.Genre;
+import com.gulaev.enums.Stores;
 import com.gulaev.enums.Tag;
+import com.gulaev.enums.Warehouses;
 import com.gulaev.exception.DescriptionToLowException;
 import com.gulaev.exception.PriceCannotBeZeroException;
 import com.gulaev.interfaces.function.Builder;
@@ -18,6 +20,8 @@ public class BookItemBuilder implements Builder<BookItem> {
     private Integer price;
     private List<Tag> tags;
     private Genre genre;
+    private Warehouses warehouseLocation;
+    private Stores storeLocation;
 
     public BookItemBuilder() {
       tags = new ArrayList<>();
@@ -64,8 +68,18 @@ public class BookItemBuilder implements Builder<BookItem> {
       return this;
     }
 
+    public BookItemBuilder setWarehouseLocation(Warehouses warehouseLocation) {
+      this.warehouseLocation = warehouseLocation;
+      return this;
+    }
+
+    public BookItemBuilder setStoreLocation(Stores storeLocation) {
+      this.storeLocation = storeLocation;
+      return this;
+    }
+
     public BookItem build() {
-      return new BookItem(id, title, author, description, price, tags, genre);
+      return new BookItem(id, title, author, description, price, tags, genre, warehouseLocation, storeLocation);
     }
   }
 

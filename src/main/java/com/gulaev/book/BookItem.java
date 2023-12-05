@@ -2,7 +2,9 @@ package com.gulaev.book;
 
 import com.gulaev.builders.BookItemBuilder;
 import com.gulaev.enums.Genre;
+import com.gulaev.enums.Stores;
 import com.gulaev.enums.Tag;
+import com.gulaev.enums.Warehouses;
 import com.gulaev.interfaces.Book;
 import com.gulaev.interfaces.Purchasable;
 import com.gulaev.user.LibraryUser;
@@ -24,9 +26,11 @@ public class BookItem implements Book, Purchasable {
   private Integer price;
   private List<Tag> tags;
   private Genre genre;
+  private Warehouses warehouseLocation;
+  private Stores storesLocation;
 
   public BookItem(Integer id, String title, String author, String description, Integer price,
-      List<Tag> tags, Genre genre) {
+      List<Tag> tags, Genre genre, Warehouses warehouseLocation, Stores storesLocation) {
     this.id = id;
     this.title = title;
     this.author = author;
@@ -34,6 +38,8 @@ public class BookItem implements Book, Purchasable {
     this.price = price;
     this.tags = tags;
     this.genre = genre;
+    this.warehouseLocation = warehouseLocation;
+    this.storesLocation = storesLocation;
   }
 
   public BookItem() {
@@ -41,6 +47,22 @@ public class BookItem implements Book, Purchasable {
 
   public static BookItemBuilder builder() {
     return new BookItemBuilder();
+  }
+
+  public Warehouses getWarehouseLocation() {
+    return warehouseLocation;
+  }
+
+  public void setWarehouseLocation(Warehouses warehouseLocation) {
+    this.warehouseLocation = warehouseLocation;
+  }
+
+  public Stores getStoresLocation() {
+    return storesLocation;
+  }
+
+  public void setStoresLocation(Stores storesLocation) {
+    this.storesLocation = storesLocation;
   }
 
   @Override

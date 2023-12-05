@@ -2,7 +2,9 @@ package com.gulaev.service;
 
 import com.gulaev.book.BookItem;
 import com.gulaev.enums.Genre;
+import com.gulaev.enums.Stores;
 import com.gulaev.enums.Tag;
+import com.gulaev.enums.Warehouses;
 import com.gulaev.exception.DescriptionToLowException;
 import com.gulaev.exception.PriceCannotBeZeroException;
 import java.util.List;
@@ -15,7 +17,7 @@ public class BookService {
   private final static Logger LOGGER = LogManager.getLogger(BookService.class);
 
     public static BookItem createNewBookItem(String author, String description, String title,
-        Integer price, Genre genre, List<Tag> tags) {
+        Integer price, Genre genre, List<Tag> tags, Warehouses warehouseLocation, Stores storeLocation) {
       LOGGER.info("Start createNewBookItem");
       BookItem book = new BookItem();
       try {
@@ -24,6 +26,8 @@ public class BookService {
             .setAuthor(author).setGenre(genre)
             .setPrice(price).setTitle(title)
             .addTag(tags).setDescription(description)
+             .setWarehouseLocation(warehouseLocation)
+             .setStoreLocation(storeLocation)
             .build();
 
       } catch (DescriptionToLowException | PriceCannotBeZeroException e) {

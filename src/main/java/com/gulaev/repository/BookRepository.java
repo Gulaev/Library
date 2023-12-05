@@ -2,7 +2,9 @@ package com.gulaev.repository;
 
 import com.gulaev.book.BookItem;
 import com.gulaev.enums.Genre;
+import com.gulaev.enums.Stores;
 import com.gulaev.enums.Tag;
+import com.gulaev.enums.Warehouses;
 import com.gulaev.linkd.Linkd;
 import com.gulaev.linkd.LinkdList;
 import java.util.Arrays;
@@ -20,7 +22,8 @@ public final class BookRepository {
                       Tag.values().length], Tag.values()[(i + 2) % Tag.values().length],
                   Tag.values()[(i + 3) % Tag.values().length], Tag.values()[(i + 4) %
                       Tag.values().length]),
-              Genre.values()[i % Genre.values().length]));
+              Genre.values()[i % Genre.values().length], Warehouses.KYIV, Stores.KYIV
+              ));
     }
   }
 

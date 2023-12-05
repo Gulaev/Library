@@ -2,10 +2,13 @@ package com.gulaev;
 
 import com.gulaev.book.BookItem;
 import com.gulaev.book.OnlineBook;
+import com.gulaev.employ.WarehouseEmployee;
 import com.gulaev.enums.Genre;
+import com.gulaev.enums.Stores;
 import com.gulaev.enums.Tag;
+import com.gulaev.enums.Warehouses;
 import com.gulaev.file.FileReader;
-import com.gulaev.interfaces.function.Builder;
+import com.gulaev.interfaces.Employee;
 import com.gulaev.interfaces.function.Calculator;
 import com.gulaev.interfaces.function.Сonnector;
 import com.gulaev.linkd.Linkd;
@@ -17,6 +20,9 @@ import com.gulaev.user.LibraryUser;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Set;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,11 +36,12 @@ public class Main {
     //Create a bookItem pool
     BookItem bookItem1 = BookService.createNewBookItem("Nick",
         "An intriguing novel by Nick, delving into the complexities of human nature and the relentless pursuit of truth. With eloquent prose and engaging storytelling, this book captivates readers with its rich narrative and thought-provoking themes. Set in a world filled with suspense and mystery, the story unfolds, enthralling readers page by page.",
-        "Book", 10, Genre.FANTASY, Arrays.asList(Tag.WAR, Tag.COMEDY));
+        "Book", 10, Genre.FANTASY, Arrays.asList(Tag.WAR, Tag.COMEDY), Warehouses.KYIV,
+        Stores.KYIV);
     BookItem bookItem2 = new BookItem(2, "Title2", "John", "Description2", 20,
-        Arrays.asList(Tag.HISTORY, Tag.WAR), Genre.MYSTERY);
+        Arrays.asList(Tag.HISTORY, Tag.WAR), Genre.MYSTERY, Warehouses.KYIV, Stores.KYIV);
     BookItem bookItem3 = new BookItem(3, "Title3", "Nick", "Description3", 30,
-        Arrays.asList(Tag.COMEDY, Tag.HISTORY), Genre.MYSTERY);
+        Arrays.asList(Tag.COMEDY, Tag.HISTORY), Genre.MYSTERY, Warehouses.KYIV, Stores.KYIV);
 
     //Testing online book pool
     OnlineBook onlineBook = OnlineBook.builder().setTitle("Title").setId(1).setAuthor("Nithe")
@@ -61,28 +68,30 @@ public class Main {
 
     LOGGER.info(integerLinkdList);
 
-//    recommendedBookItems.forEach();
-
     try {
       System.out.println(FileReader.getWordsFromFile());
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
 
-    //Testng lambda functions
+    //Testng oun lambda functions
 
-    Calculator<Integer, Integer> run2 = (Integer d, Integer b) ->
-        System.out.println(d + b);
+    Calculator<Employee, Employee> run2 = (Employee a, Employee b) ->
+        a.calculateSalary(31) + b.calculateSalary(31);
 
-    Builder<String> builder = () -> new String("Builder works");
-    String build = builder.build();
-
-    Сonnector<Integer, Integer, Long> connector = (Integer a, Integer b) -> {
-      String valueOfSum = String.valueOf(a + b);
-      Long bb = Long.parseLong(valueOfSum);
-      return bb;
+    Сonnector<BookItem, BookItem, OnlineBook> connector = (a, b) -> {
+      OnlineBook onlineBook1 = OnlineBook.builder()
+          .setAuthor(a.getAuthor())
+          .setDescription(b.getDescription())
+          .setGenre(a.getGenre())
+          .setTags(b.getTags())
+          .setPrice(a.getPrice()).build();
+      return onlineBook1;
     };
 
+    //Testing lambda functions
 
+    Consumer<Employee> comparable = e -> e.calculateSalary(12);
+//    Supplier<WarehouseEmployee> supplier = (e) -> e;
   }
 }
