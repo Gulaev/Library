@@ -135,41 +135,26 @@ public class Main {
 
     // Create an object using reflection
     Constructor<?> constructor = null;
+    OnlineBook book = null;
+    Method method = null;
+    Integer discountedPrice = null;
+
     try {
       constructor = onlineBookClass.getDeclaredConstructor(
           Integer.class, String.class, String.class, String.class, Integer.class,
           List.class, Genre.class, File.class);
-    } catch (NoSuchMethodException e) {
-      throw new RuntimeException(e);
-    }
-    constructor.setAccessible(true);
-    OnlineBook book = null;
-    try {
+
+      constructor.setAccessible(true);
       book = (OnlineBook) constructor.newInstance(
           1, "Title", "Author", "Description", 100,
           List.of(Tag.NON_FICTION), Genre.FANTASY, new File("path/to/cover.jpg"));
-    } catch (InstantiationException e) {
-      throw new RuntimeException(e);
-    } catch (IllegalAccessException e) {
-      throw new RuntimeException(e);
-    } catch (InvocationTargetException e) {
-      throw new RuntimeException(e);
-    }
-
-    // Invoke a method using reflection
-    Method method = null;
-    try {
+      // Invoke a method using reflection
       method = onlineBookClass.getDeclaredMethod("getPriceWithDiscount", LibraryUser.class);
-    } catch (NoSuchMethodException e) {
-      throw new RuntimeException(e);
-    }
-    method.setAccessible(true);
-    Integer discountedPrice = null;
-    try {
+      method.setAccessible(true);
       discountedPrice = (Integer) method.invoke(book, new LibraryUser());
-    } catch (IllegalAccessException e) {
-      throw new RuntimeException(e);
-    } catch (InvocationTargetException e) {
+
+    } catch (RuntimeException | InvocationTargetException | NoSuchMethodException |
+             InstantiationException | IllegalAccessException e) {
       throw new RuntimeException(e);
     }
 
@@ -180,5 +165,4 @@ public class Main {
     System.out.println(book);
   }
 
-}
 }
