@@ -1,5 +1,7 @@
 package com.gulaev;
 
+import com.gulaev.thread.MyRunnable;
+import com.gulaev.thread.MyThread;
 import com.gulaev.thread.ThreadTest;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -150,9 +152,17 @@ public class Main {
 //    Optional<BookItem> min = recommendedBookItems.stream().max(Comparator.comparingInt(BookItem::getPrice));
 //    System.out.printf(min.get().toString());
 
+
+    //Multithreading testing
     ThreadTest threadTest = new ThreadTest();
     threadTest.testThreadFuture();
     threadTest.testThreadSubmit();
+
+    MyThread myThread = new MyThread();
+    myThread.start();
+
+    Thread thread = new Thread(new MyRunnable());
+    thread.start();
   }
 }
 
