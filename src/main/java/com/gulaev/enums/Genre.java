@@ -19,9 +19,9 @@ public enum Genre {
 
   private String description;
 
-  {
-    System.out.println("Initialization " + this.description);
-  }
+//  {
+//    System.out.println("Initialization " + this.description);
+//  }
 
 
   Genre(String description) {
