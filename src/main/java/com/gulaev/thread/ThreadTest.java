@@ -1,6 +1,7 @@
 package com.gulaev.thread;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -33,7 +34,7 @@ public final class ThreadTest {
     ConnectionPool connectionPool = ConnectionPool.getInstance(5);
 
     for (int i = 0; i < 7; i++) {
-      CompletableFuture<String> future = CompletableFuture.supplyAsync(() -> {
+      CompletionStage<String> future = CompletableFuture.supplyAsync(() -> {
         try {
           MockConnection connection = connectionPool.getConnection();
           String isConnect = connection.connect();
@@ -49,7 +50,7 @@ public final class ThreadTest {
         return null;
       });
       try {
-        System.out.println(future.get());
+        System.out.println(future.toCompletableFuture().get());
       } catch (InterruptedException | ExecutionException e) {
         throw new RuntimeException(e);
       }
