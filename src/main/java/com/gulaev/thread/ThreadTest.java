@@ -5,8 +5,12 @@ import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public final class ThreadTest {
+
+  private final Logger LOGGER = LogManager.getLogger(ThreadTest.class);
 
   public void testThreadSubmit() {
     ExecutorService executorService = Executors.newFixedThreadPool(7);
@@ -17,11 +21,12 @@ public final class ThreadTest {
         try {
           MockConnection connection = connectionPool.getConnection();
           connection.connect();
-          System.out.println("Got connection: " + connection);
+          LOGGER.info("Got connection: " + connection);
           Thread.sleep(1000); // simulate work
           connectionPool.releaseConnection(connection);
-          System.out.println("Released connection: " + connection);
+          LOGGER.info("Released connection: " + connection);
         } catch (InterruptedException e) {
+          LOGGER.error(e.getMessage());
           e.printStackTrace();
         }
       });
@@ -38,10 +43,10 @@ public final class ThreadTest {
         try {
           MockConnection connection = connectionPool.getConnection();
           String isConnect = connection.connect();
-          System.out.println("Got connection: " + connection);
+          LOGGER.info("Got connection: " + connection);
           Thread.sleep(1000); // simulate work
           connectionPool.releaseConnection(connection);
-          System.out.println("Released connection: " + connection);
+          LOGGER.info("Released connection: " + connection);
           return isConnect;
 
         } catch (InterruptedException e) {
@@ -50,8 +55,9 @@ public final class ThreadTest {
         return null;
       });
       try {
-        System.out.println(future.toCompletableFuture().get());
+        LOGGER.info(future.toCompletableFuture().get());
       } catch (InterruptedException | ExecutionException e) {
+        LOGGER.error(e.getMessage());
         throw new RuntimeException(e);
       }
     }
